@@ -1,22 +1,33 @@
 package dec1
 
 import (
-	"regexp"
+	"strings"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
+
+const testText string = `1000
+2000
+3000
+
+4000
+
+5000
+6000
+
+7000
+8000
+9000
+
+10000
+`
 
 // TestHelloName calls greetings.Hello with a name, checking
 // for a valid return value.
 func TestHelloName(t *testing.T) {
-	// get file
-	//
 	expected := 24000
-	result, err :=
-
-	name := "Gladys"
-	want := regexp.MustCompile(`\b` + name + `\b`)
-	msg, err := Hello("Gladys")
-	if !want.MatchString(msg) || err != nil {
-		t.Fatalf(`Hello("Gladys") = %q, %v, want match for %#q, nil`, msg, err, want)
-	}
+	result, err := Run(strings.NewReader(testText))
+	assert.Equal(t, err, nil)
+	assert.Equal(t, result, expected)
 }

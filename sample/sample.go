@@ -3,17 +3,23 @@ package sample
 import (
 	"fmt"
 	"io"
-	"strconv"
+	"log"
 )
 
 // for testing purposes
 // go run advent.go sample
 func Run(input io.Reader) (any, error) {
-	x := "1000"
-	xint, err := strconv.Atoi(x)
+	output := make([]byte, 0)
+	n, err := input.Read(output)
 	if err != nil {
-		return nil, err
+		log.Fatal(err)
 	}
-	fmt.Println(xint + 10)
+	fmt.Println(n)
+
+	fmt.Println(output)
+	input.Read(output)
+	fmt.Println(output)
+	input.Read(output)
+	fmt.Println(output)
 	return nil, nil
 }
