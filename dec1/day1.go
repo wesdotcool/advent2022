@@ -4,24 +4,12 @@ package dec1
 
 import (
 	"bufio"
-	"fmt"
-	"os"
+	"io"
 	"strconv"
 )
 
-func Run(test bool) error {
-	var filename string
-	if test {
-		filename = "dec1/test_input.txt"
-	} else {
-		filename = "dec1/input.txt"
-	}
-	file, err := os.Open(filename)
-	if err != nil {
-		return err
-	}
-	defer file.Close()
-	scanner := bufio.NewScanner(file)
+func Run(input io.Reader) (any, error) {
+	scanner := bufio.NewScanner(input)
 
 	var currentText string
 	elves := make([]elf, 1)
@@ -37,7 +25,7 @@ func Run(test bool) error {
 	}
 
 	if err := scanner.Err(); err != nil {
-		return err
+		return nil, err
 	}
 
 	var maxCalories int
@@ -46,9 +34,8 @@ func Run(test bool) error {
 			maxCalories = curElf.calories
 		}
 	}
-	fmt.Println(maxCalories)
 
-	return nil
+	return maxCalories, nil
 }
 
 type elf struct {
