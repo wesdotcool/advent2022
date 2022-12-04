@@ -23,11 +23,16 @@ const testText string = `1000
 10000
 `
 
-// TestHelloName calls greetings.Hello with a name, checking
-// for a valid return value.
-func TestHelloName(t *testing.T) {
+func TestDay1Part1(t *testing.T) {
 	expected := 24000
 	result, err := Run(strings.NewReader(testText))
+	assert.Equal(t, err, nil)
+	assert.Equal(t, result, expected)
+}
+
+func TestDay1Part2(t *testing.T) {
+	expected := 45000
+	result, err := Run2(strings.NewReader(testText))
 	assert.Equal(t, err, nil)
 	assert.Equal(t, result, expected)
 }

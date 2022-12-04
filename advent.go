@@ -12,9 +12,15 @@ import (
 	"time"
 )
 
-var m = map[string]func(io.Reader) (any, error){
-	"sample": sample.Run,
-	"dec1":   dec1.Run,
+type info struct {
+	function  func(io.Reader) (any, error)
+	directory string
+}
+
+var m = map[string]info{
+	"sample": {sample.Run, "sample/"},
+	"dec1":   {dec1.Run, "dec1/"},
+	"dec1.2": {dec1.Run2, "dec1/"},
 }
 
 // Expects command line arguments to select day to run
@@ -24,7 +30,7 @@ func main() {
 		fmt.Println("Must include problem to run. Such as dec1")
 	}
 	arg := os.Args[1]
-	filename := arg + "/input"
+	filename := m[arg].directory + "input"
 	if len(os.Args) > 2 {
 		filename += "_" + os.Args[2]
 	}
@@ -36,11 +42,6 @@ func main() {
 	}
 	defer input.Close()
 
-	function, ok := m[arg]
-	if !ok {
-		fmt.Println("I don't understand argument", arg)
-		return
-	}
 	fmt.Println("======================================================")
 	fmt.Println("======================================================")
 	fmt.Printf("Advent of Code 2022! Running code for %v with file %v\n", arg, filename)
@@ -48,7 +49,7 @@ func main() {
 	fmt.Println("======================================================")
 
 	startTime := time.Now()
-	answer, err := function(input)
+	answer, err := m[arg].function(input)
 	endTime := time.Now()
 	fmt.Println("Runtime:", endTime.Sub(startTime))
 	if err != nil {
