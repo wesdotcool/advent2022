@@ -32,7 +32,6 @@ func Run(input io.Reader) (any, error) {
 
 func Run2(input io.Reader) (any, error) {
 	scanner := bufio.NewScanner(input)
-
 	answer := 0
 	var ranges []*assignmentRange
 	for scanner.Scan() {
