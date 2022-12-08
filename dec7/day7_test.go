@@ -1,0 +1,47 @@
+package dec7
+
+import (
+	"strings"
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
+
+const testText string = `$ cd /
+$ ls
+dir a
+14848514 b.txt
+8504156 c.dat
+dir d
+$ cd a
+$ ls
+dir e
+29116 f
+2557 g
+62596 h.lst
+$ cd e
+$ ls
+584 i
+$ cd ..
+$ cd ..
+$ cd d
+$ ls
+4060174 j
+8033020 d.log
+5626152 d.ext
+7214296 k
+`
+
+func TestDay6Part1(t *testing.T) {
+	expected := 95437
+	result, err := Run(strings.NewReader(testText))
+	assert.Equal(t, err, nil)
+	assert.Equal(t, expected, result)
+}
+
+func TestDay6Part2(t *testing.T) {
+	expected := 24933642
+	result, err := Run2(strings.NewReader(testText))
+	assert.Equal(t, err, nil)
+	assert.Equal(t, expected, result)
+}
