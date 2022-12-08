@@ -10,6 +10,7 @@ import (
 	"advent2022wesdotcool/dec5"
 	"advent2022wesdotcool/dec6"
 	"advent2022wesdotcool/dec7"
+	"advent2022wesdotcool/dec8"
 	"advent2022wesdotcool/sample"
 	"fmt"
 	"io"
@@ -39,6 +40,8 @@ var m = map[string]info{
 	"dec6.2": {dec6.Run2, "dec6/"},
 	"dec7":   {dec7.Run, "dec7/"},
 	"dec7.2": {dec7.Run2, "dec7/"},
+	"dec8":   {dec8.Run, "dec8/"},
+	"dec8.2": {dec8.Run2, "dec8/"},
 }
 
 // Expects command line arguments to select day to run
