@@ -4,6 +4,7 @@ package main
 
 import (
 	"advent2022wesdotcool/dec1"
+	"advent2022wesdotcool/dec10"
 	"advent2022wesdotcool/dec2"
 	"advent2022wesdotcool/dec3"
 	"advent2022wesdotcool/dec4"
@@ -26,25 +27,27 @@ type info struct {
 }
 
 var m = map[string]info{
-	"sample": {sample.Run, "sample/"},
-	"dec1":   {dec1.Run, "dec1/"},
-	"dec1.2": {dec1.Run2, "dec1/"},
-	"dec2":   {dec2.Run, "dec2/"},
-	"dec2.2": {dec2.Run2, "dec2/"},
-	"dec3":   {dec3.Run, "dec3/"},
-	"dec3.2": {dec3.Run2, "dec3/"},
-	"dec4":   {dec4.Run, "dec4/"},
-	"dec4.2": {dec4.Run2, "dec4/"},
-	"dec5":   {dec5.Run, "dec5/"},
-	"dec5.2": {dec5.Run2, "dec5/"},
-	"dec6":   {dec6.Run, "dec6/"},
-	"dec6.2": {dec6.Run2, "dec6/"},
-	"dec7":   {dec7.Run, "dec7/"},
-	"dec7.2": {dec7.Run2, "dec7/"},
-	"dec8":   {dec8.Run, "dec8/"},
-	"dec8.2": {dec8.Run2, "dec8/"},
-	"dec9":   {dec9.Run, "dec9/"},
-	"dec9.2": {dec9.Run2, "dec9/"},
+	"sample":  {sample.Run, "sample/"},
+	"dec1":    {dec1.Run, "dec1/"},
+	"dec1.2":  {dec1.Run2, "dec1/"},
+	"dec2":    {dec2.Run, "dec2/"},
+	"dec2.2":  {dec2.Run2, "dec2/"},
+	"dec3":    {dec3.Run, "dec3/"},
+	"dec3.2":  {dec3.Run2, "dec3/"},
+	"dec4":    {dec4.Run, "dec4/"},
+	"dec4.2":  {dec4.Run2, "dec4/"},
+	"dec5":    {dec5.Run, "dec5/"},
+	"dec5.2":  {dec5.Run2, "dec5/"},
+	"dec6":    {dec6.Run, "dec6/"},
+	"dec6.2":  {dec6.Run2, "dec6/"},
+	"dec7":    {dec7.Run, "dec7/"},
+	"dec7.2":  {dec7.Run2, "dec7/"},
+	"dec8":    {dec8.Run, "dec8/"},
+	"dec8.2":  {dec8.Run2, "dec8/"},
+	"dec9":    {dec9.Run, "dec9/"},
+	"dec9.2":  {dec9.Run2, "dec9/"},
+	"dec10":   {dec10.Run, "dec10/"},
+	"dec10.2": {dec10.Run2, "dec10/"},
 }
 
 // Expects command line arguments to select day to run
